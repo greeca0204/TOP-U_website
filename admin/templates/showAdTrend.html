@@ -1,0 +1,40 @@
+{{include file="header.html"}}
+<table width="100%" align="center" cellspacing="1" cellpadding="3" class="i_table">
+  <tr>
+    <td class="head" colspan="2"><b>操作菜单</b></td>
+  </tr>
+  <tr>
+    <td class="b_title">
+    	<a href="news.php?action=new&type=2" target="_self">添加TOP动态</a>&nbsp;
+    	<a href="news.php?type=2" target="_self">TOP动态管理</a>&nbsp;
+    	<a href="adTrend.php" target="_self">动态推荐管理</a>
+    </td>
+  </tr>
+</table>
+<br />
+	<table width="100%" align="center" cellspacing="1" cellpadding="3" class="i_table">
+		<tr>
+        	<td colspan="3" class="head">动态推荐</td>
+        </tr>
+		<tr>
+			<td class="head_2" width="50%">动态名称</td>
+			<td class="head_2" width="20%">是否显示</td>
+			<td class="head_2" width="30%">管理</td>
+		</tr>
+		{{foreach from=$adTrend item=adTrend name=adTrend}}
+		<tr>
+			<td width="50%" class="b">{{$adTrend.title}}</td>
+			<td width="20%"  class="b">
+				{{if $adTrend.checked==0}}隐藏{{/if}}
+				{{if $adTrend.checked==1}}显示{{/if}}
+			</td>
+   			<td width="30%"  class="b">
+            	<a href='adTrend.php?action=new&id={{$adTrend.id}}'>修改</a>
+			</td>
+		</tr>
+		{{/foreach}}
+		<tr>
+			<td colspan="3" class="b">{{$paggingbar}}</td>
+		</tr>  
+	</table>
+{{include file="footer.html"}}

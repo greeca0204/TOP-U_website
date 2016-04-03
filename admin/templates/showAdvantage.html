@@ -1,0 +1,75 @@
+{{include file="header.html"}}
+<table width="100%" align="center" cellspacing="1" cellpadding="3" class="i_table">
+  <tr>
+    <td class="head" colspan="2"><b>操作菜单</b></td>
+  </tr>
+  <tr>
+    <td class="b_title">
+    	<a href="advantage.php" target="_self">TOP优势</a>&nbsp;
+        <a href="advantage_index.php" target="_self">首页TOP优势</a>   	
+    </td>
+  </tr>
+</table>
+<br />
+<form name="fmEdit" id="fmEdit" method="post" action="advantage.php?action=save" enctype="multipart/form-data">
+    <table width="100%" align="center" cellspacing="1" cellpadding="3" class="i_table">
+    	<tr>
+			<td colspan="2" class="head">TOP优势</td>
+        </tr>
+        <tr>
+			<td width="15%" class="b">TOP优势</td>
+			<td class="b">
+                <textarea name="introduce" id="introduce" style="width:100%;height:150px;resize: none;">{{$advantage.introduce}}</textarea>
+			</td>
+		</tr>
+		<tr>
+			<td width="15%" class="b">英国留学优势</td>
+			<td class="b">
+                <textarea name="content1" id="content1" style="width:100%;height:350px;resize: none;">{{$advantage.british_advantage}}</textarea>
+			</td>
+		</tr>
+		<tr>
+			<td width="15%" class="b">教育质量</td>
+			<td class="b">
+                <textarea name="jyzl" id="jyzl" style="width:100%;height:150px;resize: none;">{{$advantage.jyzl}}</textarea>
+			</td>
+		</tr>
+        <tr>
+			<td width="15%" class="b">工作签证</td>
+			<td class="b">
+                <textarea name="gzqz" id="gzqz" style="width:100%;height:150px;resize: none;">{{$advantage.gzqz}}</textarea>
+			</td>
+		</tr>
+        <tr>
+			<td width="15%" class="b">费用成本</td>
+			<td class="b">
+				 <textarea name="fycb" id="fycb" style="width:100%;height:150px;resize: none;">{{$advantage.fycb}}</textarea>
+			</td>
+		</tr>
+        <tr>
+			<td width="15%" class="b">时间成本</td>
+			<td class="b">
+                <textarea name="sjcb" id="sjcb" style="width:100%;height:150px;resize: none;">{{$advantage.sjcb}}</textarea>
+			</td>
+		</tr>
+        <tr>
+			<td width="15%" class="b">开阔视野</td>
+			<td class="b">
+                <textarea name="kksy" id="kksy" style="width:100%;height:150px;resize: none;">{{$advantage.kksy}}</textarea>
+			</td>
+		</tr>
+        <tr>
+			<td width="15%" class="b">语言文化</td>
+			<td class="b">
+                <textarea name="yywh" id="yywh" style="width:100%;height:150px;resize: none;">{{$advantage.yywh}}</textarea>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" class="b">
+				<input type="submit" value="提交">
+				<input type="reset" value="重置">
+			</td>
+		</tr>
+	</table>
+</form>
+{{include file="footer.html"}}

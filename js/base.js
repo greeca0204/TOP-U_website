@@ -1,0 +1,32 @@
+$(function(){
+	$("#liuxue").hover(
+		function(){
+			$("#course").show();
+			$("#service").show();
+		},
+		function(){
+			$("#course").hide();
+			$("#service").hide();
+		}
+	);
+	$("#dongtai").hover(
+		function(){
+			$("#trend").show();
+			$("#news").show();
+		},
+		function(){
+			$("#trend").hide();
+			$("#news").hide();
+		}
+	);
+	$("#link").hover(
+		function(){
+			$("#contract_us").show();
+			$("#cooperation").show();
+		},
+		function(){
+			$("#contract_us").hide();
+			$("#cooperation").hide();
+		}
+	);
+});

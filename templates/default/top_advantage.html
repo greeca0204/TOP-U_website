@@ -1,0 +1,343 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="Keywords" content="{{$website.keyword}}" />
+<meta name="Description" content="{{$website.description}}" />
+<title>{{$siteTitle}}</title>
+<link rel="stylesheet" href="css/base.css" />
+<link href="css/zzsc.css" rel="stylesheet" type="text/css" />
+<style>
+	.ad_title_box{ width: 100%; height: 250px; background: #415868;}
+	.ad_title{width: 1280px; height: 250px; background: url('images/common_01.jpg')  no-repeat; margin: 0px auto; }
+	.ad_title .ad_title_logo{ width: 292px; float: left; margin:155px 5px 0px 170px;}
+	.ad_title .ad_title_li{ height: 85px; float: left; margin:215px 0px 0px 0px;}
+	.ad_title .ad_title_li li{ float: left; width: 110px; height: 30px; margin-right: 5px; font-weight: bold; padding-top: 5px;}
+	.ad_title .ad_title_li .li_over{background: #ffffff; color: #2298d6;}
+	.ad_title .ad_title_li .li_away{background: #3078a0; color: #aeba66;}
+	.title_top{ width: 450px; margin: 0px auto 50px;  }
+	.company_intro{ width: 955px; margin: 0px auto 55px; text-align: left;}
+	.company_intro p{ text-indent:2em; line-height:25px;margin-bottom:50px; font-size: 12px; }
+	.teacher_intro_box{ width: 100%; background: #f1f1f1; text-align: center;}
+	.teacher_intro_box .teacher_intro{ width: 1024px; height: 560px; background: #f1f1f1; text-align: center; padding-top: 45px; margin:0px auto;}
+	.teacher_intro_box .teacher_intro p{ font-size: 14px;}
+	.top_advantage{ width: 100%; background: #fff;}
+	.top_advantage .top_advantage_box{ width: 715px; margin: 0px auto; background: #fff; padding: 60px 0px 45px;}
+	.top_advantage .top_advantage_box .cycle{ width: 715px; margin-bottom:65px;}
+	.top_advantage .top_advantage_box .cycle .cycle_left{ margin-right: 95px; width: 130px; height: 130px; float: left; margin-top:90px;}
+	.top_advantage .top_advantage_box .cycle .cycle_mid{ margin-right: 95px; width: 255px; height: 255px; float: left;}
+	.top_advantage .top_advantage_box .cycle .cycle_right{  width: 130px; height: 130px; float: left; margin-top:90px;}
+	.top_advantage .top_advantage_box .cycle p{ line-height: 32px; color: #34cbff; font-weight: bold;}
+	.top_advantage .top_advantage_box .content_box{}
+
+	.british_advantage{ width: 100%; background: #f1f1f1;}
+	.british_advantage .british_advantage_box{ width: 860px; margin: 0px auto; background: #f1f1f1; padding: 60px 0px 45px;}
+	.top_qa{ width: 1280px; background: #fff;  margin: 0px auto;}
+	.top_advantage .top_advantage_box .content_box .content,.british_advantage .british_advantage_box .content{ font-size:12px; line-height: 20px;}
+	.top_advantage .top_advantage_box .title_chinese,.british_advantage .british_advantage_box .title_chinese,.top_qa .title_chinese{ font-size: 30px; color: #ffaa02; }
+	.top_advantage .top_advantage_box .title_english,.british_advantage .british_advantage_box .title_english,.top_qa .title_english{ font-size: 15px; color: #ffaa02; margin-bottom:45px;}
+	.program{ width: 1013px; height: 1042px; margin: 0px auto; background: url('images/advantage/advantage_04.jpg') no-repeat; position: relative;}
+	.program p{ font-size: 12px; text-align: left; line-height: 20px;}
+	.program .gzqz{ position: absolute;top: 30px; left: 0px; width: 330px;}
+	.program .jyzl{ position: absolute;top: 170px; right: 0px; width: 325px;}
+	.program .sjcb{ position: absolute;top: 330px; left: 0px; width: 330px;}
+	.program .fycb{ position: absolute;top: 470px; right: 0px; width: 325px;}
+	.program .yywh{ position: absolute;top: 620px; left: 0px; width: 330px;}
+	.program .kksy{ position: absolute;top: 710px; right: 0px; width: 325px;}
+	.top_qa .qa{ width: 1015px; margin: 0px auto; position: relative;}
+	.top_qa .qa .content{ width: 574px; margin-bottom: 300px;}
+	.top_qa .qa .content .content_box{ background:#2298d8; margin-bottom:5px; padding: 10px 30px;border: 2px solid #2298d8;-moz-border-radius: 15px;      /* Gecko browsers */-webkit-border-radius: 15px;   /* Webkit browsers */border-radius:15px;            /* W3C syntax */ }
+	.top_qa .qa .content .content_box p{ font-size: 12px; color: #fff; text-align: left; line-height: 22px;}
+	.top_qa .qa .content .content_box .q{ margin-bottom: 10px;}
+	.top_qa .qa .content .content_box .a{ display: none;}
+	.top_qa .qa .foreigner{ width: 580px; position: absolute; top: 0px; right: 0px; z-index: 999;}
+
+	/*师资团队*/
+	.flexslider {
+		margin: 0px auto 20px;
+		position: relative;
+		width: 100%;
+		height: 560px;
+		overflow: hidden;
+		zoom: 1;
+	}
+
+	.flexslider .slides li {
+		width: 100%;
+		height: 100%;
+	}
+
+	.flex-direction-nav a {
+		width: 70px;
+		height: 70px;
+		line-height: 99em;
+		overflow: hidden;
+		margin: -35px 0 0;
+		display: block;
+		background: url(images/index/ad_ctr.png) no-repeat;
+		position: absolute;
+		top: 20%;
+		z-index: 10;
+		cursor: pointer;
+		opacity: 0;
+		filter: alpha(opacity=0);
+		-webkit-transition: all .3s ease;
+		border-radius: 35px;
+	}
+
+	.flex-direction-nav .flex-next {
+		background-position: 0 -70px;
+		right: 200px;
+	}
+
+	.flex-direction-nav .flex-prev {
+		left: 200px;
+	}
+
+	.flexslider:hover .flex-next {
+		opacity: 0.8;
+		filter: alpha(opacity=25);
+	}
+
+	.flexslider:hover .flex-prev {
+		opacity: 0.8;
+		filter: alpha(opacity=25);
+	}
+
+	.flexslider:hover .flex-next:hover,
+	.flexslider:hover .flex-prev:hover {
+		opacity: 1;
+		filter: alpha(opacity=50);
+	}
+
+	.flex-control-nav {
+		width: 100%;
+		position: absolute;
+		bottom: 20px;
+		text-align: center;
+	}
+
+	.flex-control-nav li {
+		margin: 0 2px;
+		display: inline-block;
+		zoom: 1;
+		*display: inline;
+	}
+
+	.flex-control-paging li a {
+		background: url(images/index/dot.png) no-repeat 0 -16px;
+		display: block;
+		height: 16px;
+		overflow: hidden;
+		text-indent: -99em;
+		width: 16px;
+		cursor: pointer;
+	}
+
+	.flex-control-paging li a.flex-active,
+	.flex-control-paging li.active a {
+		background-position: 0 0;
+	}
+
+	.flexslider .slides a img {
+		width: 100%;
+		height: 560px;
+		display: block;
+	}
+	
+	#panel_content_1{display:block; height:70px;}
+	#panel_content_2,#panel_content_3,#panel_content_4,#panel_content_5{display:none; height:70px;}
+	
+</style>
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/base.js"></script>
+<script>
+	function doslide(id)
+	{
+		if($("#question_"+id).is(":visible")){				
+			$("#question_"+id).slideToggle();
+		}
+		else{		
+			$("#question_"+id).slideToggle();
+		}
+	}
+</script>
+</head>
+
+<body>
+	{{include file="header.html"}}
+	<div class="ad_title_box">	
+		<div class="ad_title">
+			<div class="ad_title_logo">
+				<img src="images/common_02.png" alt="" />
+			</div>
+			<div class="ad_title_li">
+				<ul>
+					<li class="li_over">TOP优势</li>
+					<div class="cl"></div>
+				</ul>
+			</div>
+			<div class="cl"></div>
+		</div>
+	</div>
+	<div class="title_top">
+		<img src="images/advantage/advantage_01.gif" alt="" />
+	</div>
+	<div class="company_intro">
+		<p>{{$company.introduce_advpage}}</p>
+		<p>{{$advantage.introduce}}</p>
+	</div>
+	<div class="teacher_intro_box">
+		<div class="teacher_intro">
+			<div id="banner_tabs" class="flexslider" style="position:relative;">
+				<ul class="slides">
+					{{foreach from="$teacher" name="teacher" item="teacher"}}
+					<li>
+						<div style="width:280px; height:280px; border-radius:50%; overflow:hidden; margin:0px auto;">
+							<img src="{{$teacher.avatar}}" alt="" style="width:280px; height:280px;" />
+						</div>
+						<p style="font-size:25px; line-height:32px; margin-top:30px;">
+							{{$teacher.name}}
+						</p>
+						<p style=" line-height:25px; margin-bottom:25px;">
+							{{$teacher.job}}
+						</p>
+						{{$teacher.introduce}}
+					</li>
+					{{/foreach}}
+				</ul>
+				<ul class="flex-direction-nav">
+					<li><a class="flex-prev" href="javascript:;">Previous</a></li>
+					<li><a class="flex-next" href="javascript:;">Next</a></li>
+				</ul>
+				<ol id="bannerCtrl" class="flex-control-nav flex-control-paging">
+					{{foreach from="$teacher2" name="teacher2" item="teacher2"}}
+					<li><a></a></li>
+					{{/foreach}}
+				</ol>
+			</div>
+			
+			<script src="js/slider.js"></script>
+			<script type="text/javascript">
+			$(function() {
+				var bannerSlider = new Slider($('#banner_tabs'), {
+					time: 5000,
+					delay: 400,
+					event: 'hover',
+					auto: true,
+					mode: 'fade',
+					controller: $('#bannerCtrl'),
+					activeControllerCls: 'active'
+				});
+				$('#banner_tabs .flex-prev').click(function() {
+					bannerSlider.prev()
+				});
+				$('#banner_tabs .flex-next').click(function() {
+					bannerSlider.next()
+				});
+			})
+			</script>
+		</div>
+	</div>
+	<div class="top_advantage">
+		<div class="top_advantage_box">
+			<p class="title_chinese">TOP优势</p>
+			<p class="title_english">TOP ADVANTAGE</p>
+			<div class="btnMode" id="slider">    
+				<a href="javascript:void(0);" class="prev btn"></a>
+				<div class="scroll">	
+					<ul class="scrollContainer">
+						<li class="panel" id="panel_1">
+							<a class="inside" style="cursor:pointer;">
+								<img  alt="{{$advantage_index.title1}}" src="{{$advantage_index.pic1}}" />
+							</a>
+							<p style=" font-size:25px; line-height:32px; margin-top:30px;">{{$advantage_index.title1}}</p>
+						</li>
+						<li class="panel" id="panel_2">
+							<a class="inside" style="cursor:pointer;">
+								<img  alt="{{$advantage_index.title2}}" src="{{$advantage_index.pic2}}" />
+							</a>
+							<p style=" font-size:25px; line-height:32px; margin-top:30px;">{{$advantage_index.title2}}</p>
+						</li>
+						<li class="panel" id="panel_3">
+							<a class="inside" style="cursor:pointer;">
+								<img  alt="{{$advantage_index.title3}}" src="{{$advantage_index.pic3}}" />
+							</a>
+							<p style=" font-size:25px; line-height:32px; margin-top:30px;">{{$advantage_index.title3}}</p>
+						</li>
+						<li class="panel" id="panel_4">
+							<a class="inside" style="cursor:pointer;">
+								<img  alt="{{$advantage_index.title4}}" src="{{$advantage_index.pic4}}" />
+							</a>
+							<p style=" font-size:25px; line-height:32px; margin-top:30px;">{{$advantage_index.title4}}</p>
+						</li>
+						<li class="panel" id="panel_5">
+							<a class="inside" style="cursor:pointer;">
+								<img  alt="{{$advantage_index.title5}}" src="{{$advantage_index.pic5}}" />
+							</a>
+							<p style=" font-size:25px; line-height:32px; margin-top:30px;">{{$advantage_index.title5}}</p>
+						</li>
+					</ul>
+				</div>
+				<a href="javascript:void(0);" class="next btn"></a>     
+			</div>
+			<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+			<script type="text/javascript" src="js/zzsc.js"></script>
+			<div style="text-align:center;clear:both"></div>
+			
+			
+			
+			<div class="content_box">
+				<div id="panel_content_1"><p class="content">{{$advantage_index.introduce1}}</p></div>
+				<div id="panel_content_2"><p class="content">{{$advantage_index.introduce2}}</p></div>
+				<div id="panel_content_3"><p class="content">{{$advantage_index.introduce3}}</p></div>
+				<div id="panel_content_4"><p class="content">{{$advantage_index.introduce4}}</p></div>
+				<div id="panel_content_5"><p class="content">{{$advantage_index.introduce5}}</p></div>
+			</div>
+		</div>
+	</div>
+	<div class="british_advantage">
+		<div class="british_advantage_box">
+			<p class="title_chinese">英国留学优势</p>
+			<p class="title_english">BRITISH EDUCATION ADVANTAGE</p>
+			{{$advantage.british_advantage}}
+		</div>
+	</div>
+	<div class="program">
+		<div class="gzqz">
+			<p>{{$advantage.gzqz}}</p>
+		</div>
+		<div class="jyzl">
+			<p>{{$advantage.jyzl}}</p>
+		</div>
+		<div class="sjcb">
+			<p>{{$advantage.sjcb}}</p>
+		</div>
+		<div class="fycb">
+			<p>{{$advantage.fycb}}</p>
+		</div>
+		<div class="yywh">
+			<p>{{$advantage.yywh}}</p>
+		</div>
+		<div class="kksy">
+			<p>{{$advantage.kksy}}</p>
+		</div>
+	</div>
+	<div class="top_qa">
+		<p class="title_chinese">常见问题</p>
+		<p class="title_english">Q&A</p>
+		<div class="qa">
+			<div class="content">
+            	{{foreach from=$question name=question item=question}}
+				<div class="content_box">
+					<p class="q" onclick="doslide({{$question.qid}});" style="cursor:pointer;">{{$question.question}}</p>
+					<p{{if $smarty.foreach.question.index !=0}} class="a"{{/if}} id="question_{{$question.qid}}">{{$question.answer}}</p>
+				</div>
+                {{/foreach}}
+			</div>
+			<div class="foreigner"><img src="images/advantage/advantage_02.png" alt="" /></div>
+		</div>
+	</div>
+	{{include file="footer.html"}}	
+</body>
+</html>

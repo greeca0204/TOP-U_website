@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="Keywords" content="{{$website.keyword}}" />
+<meta name="Description" content="{{$website.description}}" />
+<title>{{$siteTitle}}</title>
+<link rel="stylesheet" href="css/base.css" />
+<style>
+	body{background: #323f48;}
+	#warp{ width: 1280px; height: 523px;  margin: 0px auto; background: url('images/cooperation/cooperation_02.jpg') no-repeat;}
+	.title{ width:440px; height:90px; background: url('images/cooperation/cooperation_01.png') bottom no-repeat; margin:0px auto; padding-bottom: 50px;}
+	.kuangbox{ width: 970px; margin: 0px auto;}
+	.kuangbox .kuang{ width: 300px; height: 330px; float: left;}
+	.kuangbox .kuang fieldset{ height: 330px;}
+	.kuangbox .kuang legend{ color: #fff; font-size: 25px;} 
+	.kuangbox .kuang p{ text-align: left; font-size: 12px; line-height: 25px; color: #fff;}
+</style>
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/base.js"></script>
+</head>
+
+<body>	
+	{{include file="header.html"}}	
+	<div id="warp">
+		<div class="title"><img src="" alt="" /></div>
+		<div class="kuangbox">
+			{{foreach from="$cooperation" name="cooperation" item="cooperation"}}
+			<div class="kuang" {{if $cooperation.pid%3!=0}}style="margin-right:35px;"{{/if}}>
+				<fieldset>
+		      		<legend>{{$cooperation.pname}}</legend>
+		      		<p>{{$cooperation.introduce}}</p>
+		    	</fieldset>
+	    	</div>
+	    	{{/foreach}}
+    	</div>
+	</div>
+	{{include file="footer.html"}}	
+</body>
+</html>

@@ -1,0 +1,169 @@
+{{include file='header.html'}}
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<table width="100%" align="center" cellspacing="1" cellpadding="3" class="i_table">
+  <tr>
+    <td class="head" colspan="2"><b>操作菜单</b></td>
+  </tr>
+  <tr>
+    <td class="b_title">
+    	{{if $type==2}}
+    		<a href="news.php?action=new&type=2" target="_self">添加TOP动态</a>&nbsp;
+    		<a href="news.php?type=2" target="_self">TOP动态管理</a>&nbsp;
+    		<a href="adTrend.php" target="_self">动态推荐管理</a>
+    	{{/if}}
+    	{{if $type==1}}
+    		<a href="news.php?action=new&type=1" target="_self">添加留学资讯</a>&nbsp;
+    		<a href="news.php?type=1" target="_self">留学资讯管理</a>&nbsp;
+    		<a href="hotNews.php?action=new" target="_self">添加留学资讯推荐</a>&nbsp;
+    		<a href="hotNews.php" target="_self">留学资讯推荐管理</a>&nbsp;
+    		<a href="adNews.php?action=new" target="_self">添加广告推荐</a>&nbsp;
+    		<a href="adNews.php" target="_self">广告推荐管理</a>
+    	{{/if}}
+    </td>
+  </tr>
+</table>
+<br />
+<form name="fmEdit" id="fmEdit" method="post" action="news.php?action=save" enctype="multipart/form-data">
+	<input type="hidden" name="nid" id="nid" value="{{$news.nid}}" />
+	<input type="hidden" name="type" id="type" value="{{$news.type}}" />
+	<table width="100%" align="center" cellspacing="1" cellpadding="3" class="i_table">
+		<tr>
+			{{if $type==2}}
+				<td colspan="2" class="head">TOP动态管理</td>
+			{{/if}}
+    		{{if $type==1}}
+    			<td colspan="2" class="head">留学资讯管理</td>
+    		{{/if}}
+        </tr>
+        <tr>
+			<td width="15%" class="b">*新闻标题</td>
+			<td class="b">
+				<input type="text" name="name" id="name" value="{{$news.name}}" class="frminput" />
+			</td>
+	  	</tr>
+		<tr>
+			<td width="15%" class="b">新闻图片（内页推荐图，仅限TOP动态）</td>
+            <td class="b_sel">        
+				<input name="image" type="file">
+				<input type="hidden" name="hasimg" value="{{$news.pic}}" />&nbsp;格式为：506*260  
+		  </td>
+	  	</tr>
+        {{if $news.pic != ''}}
+        <tr>
+			<td width="15%" class="b">新闻图片（内页推荐图，仅限TOP动态）</td>
+			<td class="b">
+				<img src="../{{$news.pic}}" width="506" height="260" alt="" />
+			</td>
+	  	</tr>
+	  	{{/if}}
+		<tr>
+			<td width="15%" class="b">新闻图片（首页小推荐图，仅限TOP动态）</td>
+            <td class="b_sel">        
+				<input name="image1" type="file">
+				<input type="hidden" name="hasimg1" value="{{$news.pic1}}" />&nbsp;格式为：327*206  
+		  </td>
+	  	</tr>
+        {{if $news.pic1 != ''}}
+        <tr>
+			<td width="15%" class="b">新闻图片（首页小推荐图，仅限TOP动态）</td>
+			<td class="b">
+				<img src="../{{$news.pic1}}" width="327" height="206" alt="" />
+			</td>
+	  	</tr>
+	  	{{/if}}
+	  	<tr>
+			<td width="15%" class="b">新闻图片（首页大推荐图，仅限TOP动态）</td>
+            <td class="b_sel">        
+				<input name="image2" type="file">
+				<input type="hidden" name="hasimg2" value="{{$news.pic2}}" />&nbsp;格式为：502*332  
+		  </td>
+	  	</tr>
+        {{if $news.pic2 != ''}}
+        <tr>
+			<td width="15%" class="b">新闻图片（首页大推荐图，仅限TOP动态）</td>
+			<td class="b">
+				<img src="../{{$news.pic2}}" width="502" height="332" alt="" />
+			</td>
+	  	</tr>
+	  	{{/if}}
+	  	<tr>
+			<td width="15%" class="b">新闻图片（内页幻灯片切换，仅限TOP动态）</td>
+            <td class="b_sel">        
+				<input name="image3" type="file">
+				<input type="hidden" name="hasimg3" value="{{$news.pic3}}" />&nbsp;格式为：312*320  
+		  </td>
+	  	</tr>
+        {{if $news.pic3 != ''}}
+        <tr>
+			<td width="15%" class="b">新闻图片（内页幻灯片切换，仅限TOP动态）</td>
+			<td class="b">
+				<img src="../{{$news.pic3}}" width="312" height="320" alt="" />
+			</td>
+	  	</tr>
+	  	{{/if}}
+		<tr>
+			<td width="15%" class="b">时间</td>
+			<td class="b">
+				<input type="text" name="addtime" id="addtime" onClick="return Calendar('addtime');"  value="{{$news.addtime|date_format:'%Y-%m-%d'}}"  class="frminput" />
+			</td>
+		</tr>
+	  	<tr>
+			<td width="15%" class="b">新闻概述</td>
+			<td class="b">
+				<textarea name="summary"  id="summary" style="width:100%;height:100px; resize:none;">{{$news.summary}}</textarea>
+			</td>
+	  	</tr>
+	  	<tr>
+			<td width="15%" class="b">新闻内容</td>
+			<td class="b">
+				<textarea name="content1"  id="content1" style="width:100%;height:350px; resize:none;">{{$news.content}}</textarea>
+			</td>
+	  	</tr>
+	  	<tr>
+			<td width="15%" class="b">推荐</td>
+			<td class="b_sel">
+				<select  name="recommend" id="recommend">
+					<option value="1" {{if $news.recommend==1}}selected="selected"{{/if}}>推荐</option>
+					<option value="0" {{if $news.recommend==0}}selected="selected"{{/if}}>不推荐</option>
+				</select>
+			</td>
+	  	</tr>
+	  	<tr>
+			<td width="15%" class="b">幻灯片区域显示</td>
+			<td class="b_sel">
+				<select  name="slide" id="slide">
+					<option value="1" {{if $news.slide==1}}selected="selected"{{/if}}>显示</option>
+					<option value="0" {{if $news.slide==0}}selected="selected"{{/if}}>隐藏</option>
+				</select>
+			</td>
+	  	</tr>
+	  	<tr>
+			<td width="15%" class="b">首页显示</td>
+			<td class="b_sel">
+				<select  name="indexshow" id="indexshow">
+					<option value="1" {{if $news.indexshow==1}}selected="selected"{{/if}}>显示</option>
+					<option value="0" {{if $news.indexshow==0}}selected="selected"{{/if}}>隐藏</option>
+				</select>
+			</td>
+	  	</tr>	  	
+		<tr>
+			<td width="15%" class="b">状态</td>
+			<td class="b_sel">
+				<select  name="status" id="status">
+					<option value="1" {{if $news.status==1}}selected="selected"{{/if}}>即将举行</option>
+					<option value="2" {{if $news.status==2}}selected="selected"{{/if}}>往期活动</option>
+					<option value="3" {{if $news.status==3}}selected="selected"{{/if}}>留学资讯</option>
+				</select>
+			</td>
+	  	</tr>
+		<tr>
+			<td colspan="2" class="b">
+				<input type="submit" value="提交" />
+				<input type="reset" value="重置" />
+				
+			</td>
+		</tr>
+	</table>
+</form>
+{{include file='footer.html'}}

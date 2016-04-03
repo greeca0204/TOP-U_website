@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>{{$siteTitle}}</title>
+		<link href="css/imageMenu.css" rel="stylesheet" type="text/css" />
+		<style type="text/css">
+			#imageMenu ul li.landscapes a {
+				background: url({{$news1.pic3}}) no-repeat scroll 0%;
+			}
+
+			#imageMenu ul li.people a {
+				background: url({{$news2.pic3}}) no-repeat scroll 0%;
+			}
+
+			#imageMenu ul li.nature a {
+				background: url({{$news3.pic3}}) no-repeat scroll 0%;
+			}
+
+			#imageMenu ul li.urban a {
+				background: url({{$news4.pic3}}) no-repeat scroll 0%;
+			}
+
+			#imageMenu ul li.abstract a {
+				background: url({{$news5.pic3}}) no-repeat scroll 0%;
+				width: 312px;
+			}
+		</style>
+		<script type="text/javascript" src="_common/js/mootools.js"></script>
+		<script type="text/javascript" src="js/imageMenu.js"></script>
+	</head>
+	<body>
+			<div id="example">
+				<div id="imageMenu">
+					<ul>
+						<li class="landscapes"><a href="article.php?nid={{$news1.nid}}" target="_blank">{{$news1.name}}</a></li>
+						<li class="people"><a href="article.php?nid={{$news2.nid}}" target="_blank">{{$news2.name}}</a></li>
+						<li class="nature"><a href="article.php?nid={{$news3.nid}}" target="_blank">{{$news3.name}}</a></li>
+						<li class="urban"><a href="article.php?nid={{$news4.nid}}" target="_blank">{{$news4.name}}</a></li>
+						<li class="abstract"><a href="article.php?nid={{$news5.nid}}" target="_blank">{{$news5.name}}</a></li>
+					</ul>
+				</div>
+				<script type="text/javascript">					
+					window.addEvent('domready', function(){
+						var myMenu = new ImageMenu($$('#imageMenu a'),{openWidth:310, border:2, onOpen:function(e,i){window.open(e);}});
+					});
+				</script>
+			</div>
+	</body>
+</html>

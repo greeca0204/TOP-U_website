@@ -1,0 +1,52 @@
+{{include file="header.html"}}
+<table width="100%" align="center" cellspacing="1" cellpadding="3" class="i_table">
+  <tr>
+    <td class="head" colspan="2"><b>操作菜单</b></td>
+  </tr>
+  <tr>
+    <td class="b_title">
+    	<a href="question.php?action=new" target="_self">添加常见问题</a>&nbsp;
+    	<a href="question.php" target="_self">常见问题管理</a>
+    </td>
+  </tr>
+</table>
+<br />
+<form name="fmEdit" id="fmEdit" action="question.php?action=delete" method="post">
+    <table width="100%" align="center" cellspacing="1" cellpadding="3" class="i_table">
+		<tr>
+        	<td colspan="5" class="head">常见问题</td>
+        </tr>
+        <tr>
+			<td width="10%" class="head_2">问题编号</td>
+			<td width="30%" class="head_2">问题</td> 
+			<td width="30%" class="head_2">回答</td>         	
+	  	  	<td width="10%" class="head_2">管理</td>
+			<td width="20%" class="head_2">删除</td>
+		</tr>
+		{{foreach from=$question item=question name=question}}
+		<tr>
+			<td width="10%" class="b">{{$question.qid}}</td>
+			<td width="30%" class="b">{{$question.question}}</td>    
+			<td width="30%" class="b">{{$question.answer}}</td>			
+   			<td width="10%" class="b">
+            	<a href='question.php?action=new&qid={{$question.qid}}'>修改</a>
+		  	</td>
+			<td width="20%" class="b">
+				<input type="checkbox" name="chk1[]" id="chk1" value="{{$question.qid}}" />
+			</td>
+		</tr>
+		{{/foreach}}
+		<tr>
+			<td colspan="4" class="b">
+				<input type="submit" name="Submit" value="删除" />
+			</td>
+			<td width="20%" class="b">
+				全选/全不选<input type="checkbox" name="chk2" id="chk2" />
+			</td>
+		</tr>
+		<tr>
+			<td colspan="5" class="b">{{$paggingbar}}</td>
+		</tr>  
+	</table>
+</form>
+{{include file="footer.html"}}

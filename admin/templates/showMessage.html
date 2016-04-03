@@ -1,0 +1,24 @@
+{{include file="header.html"}}
+	<table width="100%" align="center" cellspacing="1" cellpadding="3" class="i_table">
+		<tr>
+        	<td colspan="5" class="head">留言信息管理</td>
+        </tr>
+		<tr>
+			<td width="10%" class="head_2">姓名</td>
+            <td width="20%" class="head_2">联系电话</td>
+			<td width="20%" class="head_2">其他联系方式</td>
+			<td width="50%" class="head_2">留言</td>
+		</tr>
+		{{foreach from=$message item=message name=message}}
+		<tr>
+			<td width="10%" class="b">{{$message.username}}</td>
+            <td width="20%" class="b">{{$message.tel}}</td>
+			<td width="20%" class="b">{{$message.other}}</td>
+			<td width="50%" class="b">{{$message.message}}</td>
+		</tr>
+		{{/foreach}}
+		<tr>
+			<td class="b" colspan="4">{{$paggingbar}}</td>
+		</tr>  
+	</table>
+{{include file="footer.html"}}

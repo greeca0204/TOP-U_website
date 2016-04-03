@@ -1,0 +1,162 @@
+{{include file="header.html"}}
+<table width="100%" align="center" cellspacing="1" cellpadding="3" class="i_table">
+  <tr>
+    <td class="head" colspan="2"><b>操作菜单</b></td>
+  </tr>
+  <tr>
+    <td class="b_title">
+    	<a href="advantage.php" target="_self">TOP优势</a>&nbsp;
+        <a href="advantage_index.php" target="_self">首页TOP优势</a>   	
+    </td>
+  </tr>
+</table>
+<br />
+<form name="fmEdit" id="fmEdit" method="post" action="advantage_index.php?action=save" enctype="multipart/form-data">
+    <table width="100%" align="center" cellspacing="1" cellpadding="3" class="i_table">
+    	<tr>
+			<td colspan="2" class="head">TOP优势</td>
+        </tr>
+        <tr>
+			<td width="15%" class="b">优势一</td>
+			<td class="b">
+                <input type="text" name="title1" id="title1" value="{{$advantage_index.title1}}" class="frminput" />
+			</td>
+		</tr>
+		<tr>
+			<td width="15%" class="b">优势一图片</td>
+			<td class="b">
+				<input name="image1" type="file">
+				<input type="hidden" name="hasimg1" value="{{$advantage_index.pic1}}" />
+			</td>
+		</tr>
+		{{if $advantage_index.pic1!=""}}
+		<tr>
+			<td width="15%" class="b">优势一图片</td>
+			<td class="b">
+				<img src="../{{$advantage_index.pic1}}" />
+			</td>
+		</tr>
+		{{/if}}
+		<tr>
+			<td width="15%" class="b">优势一内容</td>
+			<td class="b">
+                <textarea name="introduce1" id="introduce1" style="width:100%;height:150px;resize: none;">{{$advantage_index.introduce1}}</textarea>
+			</td>
+		</tr>
+		<tr>
+			<td width="15%" class="b">优势二</td>
+			<td class="b">
+                <input type="text" name="title2" id="title2" value="{{$advantage_index.title2}}" class="frminput" />
+			</td>
+		</tr>
+		<tr>
+			<td width="15%" class="b">优势二图片</td>
+			<td class="b">
+				<input name="image2" type="file">
+				<input type="hidden" name="hasimg2" value="{{$advantage_index.pic2}}" />
+			</td>
+		</tr>
+		{{if $advantage_index.pic2!=""}}
+		<tr>
+			<td width="15%" class="b">优势二图片</td>
+			<td class="b">
+				<img src="../{{$advantage_index.pic2}}" />
+			</td>
+		</tr>
+		{{/if}}
+		<tr>
+			<td width="15%" class="b">优势二内容</td>
+			<td class="b">
+                <textarea name="introduce2" id="introduce2" style="width:100%;height:150px;resize: none;">{{$advantage_index.introduce2}}</textarea>
+			</td>
+		</tr>
+		<tr>
+			<td width="15%" class="b">优势三</td>
+			<td class="b">
+                <input type="text" name="title3" id="title3" value="{{$advantage_index.title3}}" class="frminput" />
+			</td>
+		</tr>
+		<tr>
+			<td width="15%" class="b">优势三图片</td>
+			<td class="b">
+				<input name="image3" type="file">
+				<input type="hidden" name="hasimg3" value="{{$advantage_index.pic3}}" />
+			</td>
+		</tr>
+		{{if $advantage_index.pic3!=""}}
+		<tr>
+			<td width="15%" class="b">优势三图片</td>
+			<td class="b">
+				<img src="../{{$advantage_index.pic3}}" />
+			</td>
+		</tr>
+		{{/if}}
+		<tr>
+			<td width="15%" class="b">优势三内容</td>
+			<td class="b">
+                <textarea name="introduce3" id="introduce3" style="width:100%;height:150px;resize: none;">{{$advantage_index.introduce3}}</textarea>
+			</td>
+		</tr>
+		<tr>
+			<td width="15%" class="b">优势四</td>
+			<td class="b">
+                <input type="text" name="title4" id="title4" value="{{$advantage_index.title4}}" class="frminput" />
+			</td>
+		</tr>
+		<tr>
+			<td width="15%" class="b">优势四图片</td>
+			<td class="b">
+				<input name="image4" type="file">
+				<input type="hidden" name="hasimg4" value="{{$advantage_index.pic4}}" />
+			</td>
+		</tr>
+		{{if $advantage_index.pic4!=""}}
+		<tr>
+			<td width="15%" class="b">优势四图片</td>
+			<td class="b">
+				<img src="../{{$advantage_index.pic4}}" />
+			</td>
+		</tr>
+		{{/if}}
+		<tr>
+			<td width="15%" class="b">优势四内容</td>
+			<td class="b">
+                <textarea name="introduce4" id="introduce4" style="width:100%;height:150px;resize: none;">{{$advantage_index.introduce4}}</textarea>
+			</td>
+		</tr>
+		<tr>
+			<td width="15%" class="b">优势五</td>
+			<td class="b">
+                <input type="text" name="title5" id="title5" value="{{$advantage_index.title5}}" class="frminput" />
+			</td>
+		</tr>
+		<tr>
+			<td width="15%" class="b">优势五图片</td>
+			<td class="b">
+				<input name="image5" type="file">
+				<input type="hidden" name="hasimg5" value="{{$advantage_index.pic5}}" />
+			</td>
+		</tr>
+		{{if $advantage_index.pic5!=""}}
+		<tr>
+			<td width="15%" class="b">优势五图片</td>
+			<td class="b">
+				<img src="../{{$advantage_index.pic5}}" />
+			</td>
+		</tr>
+		{{/if}}
+		<tr>
+			<td width="15%" class="b">优势五内容</td>
+			<td class="b">
+                <textarea name="introduce5" id="introduce5" style="width:100%;height:150px;resize: none;">{{$advantage_index.introduce5}}</textarea>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" class="b">
+				<input type="submit" value="提交">
+				<input type="reset" value="重置">
+			</td>
+		</tr>
+	</table>
+</form>
+{{include file="footer.html"}}

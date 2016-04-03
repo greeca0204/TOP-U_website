@@ -1,0 +1,68 @@
+{{include file='header.html'}}
+<table width="100%" align="center" cellspacing="1" cellpadding="3" class="i_table">
+  <tr>
+    <td class="head" colspan="2"><b>操作菜单</b></td>
+  </tr>
+  <tr>
+    <td class="b_title">
+    	<a href="news.php?action=new&type=1" target="_self">添加留学资讯</a>&nbsp;
+    	<a href="news.php?type=1" target="_self">留学资讯管理</a>&nbsp;
+    	<a href="hotNews.php?action=new" target="_self">添加留学资讯推荐</a>&nbsp;
+    	<a href="hotNews.php" target="_self">留学资讯推荐管理</a>&nbsp;
+    	<a href="adNews.php?action=new" target="_self">添加广告推荐</a>&nbsp;
+    	<a href="adNews.php" target="_self">广告推荐管理</a>
+    </td>
+  </tr>
+</table>
+<br />
+<form name="fmEdit" id="fmEdit" method="post" action="adNews.php?action=save" enctype="multipart/form-data">
+	<input type="hidden" name="id" id="id" value="{{$adNews.id}}" />
+	<table border="0" width="100%" align="center" cellspacing="1" cellpadding="3" class="i_table">
+		<tr>
+			<td colspan="2" class="head">广告推荐</td>
+        </tr>
+		<tr>
+			<td width="10%" class="b">广告名称：</td>
+			<td class="b">
+				<input name="title" id="title" value="{{$adNews.title}}"  class="frminput" />
+			</td>
+		</tr>
+		<tr>
+			<td width="10%" class="b">广告图片：</td>
+			<td class="b_sel">
+				<input name="image" type="file">
+				<input type="hidden" name="hasimg" value="{{$adNews.imgurl}}" />&nbsp;格式为：295*160
+			</td>
+		</tr>
+		{{if $adNews.imgurl != ''}}
+		<tr>
+			<td width="10%" class="b">广告图片：</td>
+			<td class="b_sel"> 
+    			<img src="../{{$adNews.imgurl}}" alt="" />
+    		</td>
+		</tr>
+		{{/if}}
+		<tr>
+			<td width="10%" class="b">广告链接：</td>
+			<td class="b">
+				<input name="contenturl" id="contenturl" value="{{$adNews.contenturl}}" class="frminput"/>
+			</td>
+		</tr>
+		<tr>
+			<td width="10%" class="b">是否显示：</td>
+			<td class="b_sel">
+				<select name="checked" id="checked">             
+      				<option value="0"  {{if $adNews.checked==0}}selected{{/if}}>隐藏</option>
+                    <option value="1"  {{if $adNews.checked==1}}selected{{/if}}>显示</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" class="b">
+				<input type="submit" value="提交">
+				<input type="reset" value="重置">
+			</td>
+		</tr>
+	</table>
+</form>
+{{include file='footer.html'}}

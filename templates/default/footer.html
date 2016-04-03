@@ -1,0 +1,48 @@
+	<div class="footer">	
+		<div class="foot_box">
+			<div class="foot_top">
+				<ul>
+					<li>友情链接</li>
+					<li>联系我们</li>
+					<li>&nbsp;</li>
+					<li>网址导航</li>
+					<div class="cl"></div>
+				</ul>
+			</div>
+			<hr />
+			<div class="foot_middle">
+				<div class="foot_middle_left">
+					<ul>
+						 {{foreach from=$friend name=friend item=friend}}
+						<li><a href="{{$friend.url}}" target="_blank">{{$friend.friends}}</a></li>
+						{{/foreach}}
+					</ul>
+				</div>
+				<div class="foot_middle_middle">
+					<ul>
+						<li>公司地址：</li>
+						<li>{{$website.address}}</li>
+						<li>电话号码：{{$website.tel}}</li>
+						<li>电子邮箱：{{$website.email}}</li>
+					</ul>
+				</div>
+				
+				<div class="foot_middle_right">
+					<ul>
+						<li class="navli"><a href="course.php">TOP课程</a></li>
+						<li class="navli"><a href="service.php">服务流程</a></li>
+						<li class="navli"><a href="advantage.php">TOP优势</a></li>
+						<li class="navli"><a href="trend.php">TOP动态</a></li>
+						<li class="navli"><a href="news.php">留学资讯</a></li>
+						<li class="navli"><a href="contract_us.php">联系我们</a></li>
+						<li class="navli"><a href="cooperation.php">TOP合作</a></li>
+						<li class="navli"><a href="question.php">常见问题</a></li>
+						<div class="cl"></div>
+					</ul>
+				</div>
+
+				<div class="cl"></div>
+			</div>
+		</div>
+		<div class="copyright">{{$website.copyright}}</div>
+	</div>

@@ -1,0 +1,40 @@
+{{include file="header.html"}}
+<table width="100%" align="center" cellspacing="1" cellpadding="3" class="i_table">
+  <tr>
+    <td class="head" colspan="2"><b>操作菜单</b></td>
+  </tr>
+  <tr>
+    <td class="b_title">
+    	<a href="project.php?action=new" target="_self">添加项目信息</a>&nbsp;
+    	<a href="project.php" target="_self">项目信息管理</a>
+    </td>
+  </tr>
+</table>
+<br />
+<form name="fmEdit" id="fmEdit" method="post" action="project.php?action=save" enctype="multipart/form-data">
+    <input type="hidden" id="pid" name="pid" value="{{$cooperation.pid}}" />
+	<table width="100%" align="center" cellspacing="1" cellpadding="3" class="i_table">
+    	<tr>
+			<td colspan="2" class="head">项目信息管理</td>
+        </tr>
+		<tr>
+			<td width="15%" class="b">项目名</td>
+			<td class="b">
+                <input type="text" name="pname" id="pname" value="{{$cooperation.pname}}"  class="frminput" />
+			</td>
+		</tr>
+		<tr>
+			<td width="15%" class="b">介绍</td>
+			<td class="b">
+                <textarea name="introduce" id="introduce" style="width:100%;height:150px;resize: none;">{{$cooperation.introduce}}</textarea>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" class="b">
+				<input type="submit" value="提交">
+				<input type="reset" value="重置">
+			</td>
+		</tr>
+	</table>
+</form>
+{{include file="footer.html"}}

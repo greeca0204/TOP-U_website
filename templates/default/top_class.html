@@ -1,0 +1,281 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="Keywords" content="{{$website.keyword}}" />
+<meta name="Description" content="{{$website.description}}" />
+<title>{{$siteTitle}}</title>
+<link rel="stylesheet" href="css/base.css" />
+<style>
+	.ad_title_box{ width: 100%; height: 250px; background: #415868;}
+	.ad_title{width: 1280px; height: 250px; background: url('images/common_01.jpg')  no-repeat; margin: 0px auto; }
+	.ad_title .ad_title_logo{ width: 292px; float: left; margin:155px 5px 0px 170px;}
+	.ad_title .ad_title_li{ height: 85px; float: left; margin:215px 0px 0px 0px;}
+	.ad_title .ad_title_li li{ float: left; width: 110px; height: 30px; margin-right: 5px; font-weight: bold; padding-top: 5px;}
+	.ad_title .ad_title_li .li_over{background: #ffffff; color: #2298d6;}
+	.ad_title .ad_title_li .li_away{background: #3078a0; color: #aeba66;}
+	.ad_title .ad_title_li .li_away a{ color: #aeba66;}
+
+	.our_advantage{ width: 100%; background: #f1f1f1;}
+	.our_advantage .our_advantage_box{ width: 1024px; margin: 0px auto; background: #f1f1f1; padding: 60px 0px 45px;}
+	.our_advantage .our_advantage_box .our_advantage_box_left{ width: 570px; margin-right: 90px; float: left;}
+	.our_advantage .our_advantage_box .our_advantage_box_right{ width: 355px; float: left;}
+	.our_advantage .our_advantage_box .title_chinese{ font-size: 30px; color: #ffaa02;  text-align: left;}
+	.our_advantage .our_advantage_box .title_english{ font-size: 15px; color: #ffaa02; margin-bottom:45px; text-align: left;}
+	.our_advantage .our_advantage_box .content{ font-size:12px; line-height: 20px; text-align: left;}
+
+	.program{ width: 962px; height: 902px; margin: 0px auto 100px; background: url('images/class/class_05.jpg') no-repeat; position: relative;}
+	.program p{ font-size: 12px; text-align: left; line-height: 20px;}
+	.program .sqlcjb{ position: absolute;top: 50px; left: 300px; width: 180px;}
+	.program .xzjj{ position: absolute;top: 270px; left: 300px; width: 285px;}
+	.program .xwhjlg{ position: absolute;top: 430px; left: 150px; width: 525px;}
+	.program .bylg{ position: absolute;top: 630px; left: 300px; width: 345px;}
+	.program .yyql{ position: absolute;top: 800px; left: 300px; width: 305px;}
+
+	.top_qa{ width: 1280px; background: #fff;  margin: 0px auto;}
+	.top_qa .qa{ width: 1015px; margin: 0px auto; position: relative;}
+	.top_qa .qa .content{ width: 574px; margin-bottom: 300px;}
+	.top_qa .qa .content .content_box{ background:#2298d8; margin-bottom:5px; padding: 10px 30px;border: 2px solid #2298d8;-moz-border-radius: 15px;      /* Gecko browsers */-webkit-border-radius: 15px;   /* Webkit browsers */border-radius:15px;            /* W3C syntax */ }
+	.top_qa .qa .content .content_box p{ font-size: 12px; color: #fff; text-align: left; line-height: 22px;}
+	.top_qa .qa .content .content_box .q{ margin-bottom: 10px;}
+	.top_qa .qa .content .content_box .a{ display: none;}
+	.top_qa .qa .foreigner{ width: 580px; position: absolute; top: 80px; right: 0px; z-index: 999;}
+	.top_qa .title_chinese{ font-size: 30px; color: #ffaa02; }
+	.top_qa .title_english{ font-size: 15px; color: #ffaa02; margin-bottom:25px;}
+
+	.teacher_intro_box .teacher_intro p{ font-size: 14px;}
+	.teacher_intro_box{ width: 100%; background: #fff; text-align: center;}
+	.teacher_intro_box .teacher_intro{ width: 1024px; height: 560x; text-align: center; padding-top: 45px; margin:0px auto 50px; }
+	.teacher_intro_box .teacher_intro p{ font-size: 14px;}
+	/*
+	.teacher_intro_box .teacher_intro .cyclep{ width:1024px; font-size:25px;line-height: 32px; color: #34cbff; font-weight: bold;margin: 30px auto;}
+	.teacher_intro_box .teacher_intro .content{font-size:12px; line-height: 20px;} 
+	*/
+	.flexslider {
+		margin: 0px auto 20px;
+		position: relative;
+		width: 100%;
+		height: 560px;
+		overflow: hidden;
+		zoom: 1;
+	}
+
+	.flexslider .slides li {
+		width: 100%;
+		height: 100%;
+	}
+
+	.flex-direction-nav a {
+		width: 70px;
+		height: 70px;
+		line-height: 99em;
+		overflow: hidden;
+		margin: -35px 0 0;
+		display: block;
+		background: url(images/index/ad_ctr.png) no-repeat;
+		position: absolute;
+		top: 20%;
+		z-index: 10;
+		cursor: pointer;
+		opacity: 0;
+		filter: alpha(opacity=0);
+		-webkit-transition: all .3s ease;
+		border-radius: 35px;
+	}
+
+	.flex-direction-nav .flex-next {
+		background-position: 0 -70px;
+		right: 200px;
+	}
+
+	.flex-direction-nav .flex-prev {
+		left: 200px;
+	}
+
+	.flexslider:hover .flex-next {
+		opacity: 0.8;
+		filter: alpha(opacity=25);
+	}
+
+	.flexslider:hover .flex-prev {
+		opacity: 0.8;
+		filter: alpha(opacity=25);
+	}
+
+	.flexslider:hover .flex-next:hover,
+	.flexslider:hover .flex-prev:hover {
+		opacity: 1;
+		filter: alpha(opacity=50);
+	}
+
+	.flex-control-nav {
+		width: 100%;
+		position: absolute;
+		bottom: 20px;
+		text-align: center;
+	}
+
+	.flex-control-nav li {
+		margin: 0 2px;
+		display: inline-block;
+		zoom: 1;
+		*display: inline;
+	}
+
+	.flex-control-paging li a {
+		background: url(images/index/dot.png) no-repeat 0 -16px;
+		display: block;
+		height: 16px;
+		overflow: hidden;
+		text-indent: -99em;
+		width: 16px;
+		cursor: pointer;
+	}
+
+	.flex-control-paging li a.flex-active,
+	.flex-control-paging li.active a {
+		background-position: 0 0;
+	}
+
+	.flexslider .slides a img {
+		width: 100%;
+		height: 560px;
+		display: block;
+	}
+</style>
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/base.js"></script>
+<script>
+	function doslide(id)
+	{
+		if($("#question_"+id).is(":visible")){				
+			$("#question_"+id).slideToggle();
+		}
+		else{		
+			$("#question_"+id).slideToggle();
+		}
+	}
+</script>
+</head>
+
+<body>
+	{{include file="header.html"}}	
+	<div class="ad_title_box">
+		<div class="ad_title">
+			<div class="ad_title_logo">
+				<img src="images/common_02.png" alt="" />
+			</div>
+			<div class="ad_title_li">
+				<ul>
+					<li class="li_over">TOP课程</li>
+					<li class="li_away"><a href="service.php">服务流程</a></li>
+					<div class="cl"></div>
+				</ul>
+			</div>
+			<div class="cl"></div>
+		</div>
+	</div>
+	<div class="teacher_intro_box">
+		<div class="teacher_intro">
+			<div id="banner_tabs" class="flexslider">
+				<ul class="slides">
+					{{foreach from="$teacher" name="teacher" item="teacher"}}
+					<li>
+						<div style="width:280px; height:280px; border-radius:50%; overflow:hidden; margin:0px auto;">
+							<img src="{{$teacher.avatar}}" alt="" style="width:280px; height:280px;" />
+						</div>
+						<p style="font-size:25px; line-height:32px; margin-top:30px;">
+							{{$teacher.name}}
+						</p>
+						<p style=" line-height:25px; margin-bottom:25px;">
+							{{$teacher.job}}
+						</p>
+						{{$teacher.introduce}}
+					</li>
+					{{/foreach}}
+				</ul>
+				<ul class="flex-direction-nav">
+					<li><a class="flex-prev" href="javascript:;">Previous</a></li>
+					<li><a class="flex-next" href="javascript:;">Next</a></li>
+				</ul>
+				<ol id="bannerCtrl" class="flex-control-nav flex-control-paging">
+					{{foreach from="$teacher2" name="teacher2" item="teacher2"}}
+					<li><a></a></li>
+					{{/foreach}}
+				</ol>
+			</div>
+			
+			<script src="js/slider.js"></script>
+			<script type="text/javascript">
+			$(function() {
+				var bannerSlider = new Slider($('#banner_tabs'), {
+					time: 5000,
+					delay: 400,
+					event: 'hover',
+					auto: true,
+					mode: 'fade',
+					controller: $('#bannerCtrl'),
+					activeControllerCls: 'active'
+				});
+				$('#banner_tabs .flex-prev').click(function() {
+					bannerSlider.prev()
+				});
+				$('#banner_tabs .flex-next').click(function() {
+					bannerSlider.next()
+				});
+			})
+			</script>
+			<script src="js/AC_RunActiveContent.js" type="text/javascript"></script>
+		</div>
+	</div>
+	<div class="our_advantage">
+		<div class="our_advantage_box">
+			<div class="our_advantage_box_left"><img src="images/class/class_06.png" alt="" /></div>
+			<div class="our_advantage_box_right">
+				<p class="title_chinese">适用人群</p>
+				<p class="title_english">APPLIED GROUP</p>
+				<p class="content">{{$course.syrq}}</p>
+			</div>
+			<div class="cl"></div>
+		</div>
+	</div>
+	<div class="program">
+		<div class="sqlcjb">
+			<p>{{$course.title1}}</p>
+			<p>{{$course.picbox1}}</p>
+		</div>
+		<div class="xzjj">
+			<p>{{$course.title2}}</p>
+			<p>{{$course.picbox2}}</p>
+		</div>
+		<div class="xwhjlg">
+			<p>{{$course.title3}}</p>
+			<p>{{$course.picbox3}}</p>
+		</div>
+		<div class="bylg">
+			<p>{{$course.title4}}</p>
+			<p>{{$course.picbox4}}</p>
+		</div>
+		<div class="yyql">
+			<p>{{$course.title5}}</p>
+			<p>{{$course.picbox5}}</p>
+		</div>
+	</div>
+	<div class="top_qa">
+		<p class="title_chinese">常见问题</p>
+		<p class="title_english">Q&A</p>
+		<div class="qa">
+			<div class="content">				
+				{{foreach from=$question name=question item=question}}
+				<div class="content_box">
+					<p class="q" onclick="doslide({{$question.qid}});" style="cursor:pointer;">{{$question.question}}</p>
+					<p{{if $smarty.foreach.question.index !=0}} class="a"{{/if}} id="question_{{$question.qid}}">{{$question.answer}}</p>
+				</div>
+                {{/foreach}}
+			</div>
+			<div class="foreigner"><img src="images/class/class_04.png" alt="" /></div>
+		</div>
+	</div>
+	{{include file="footer.html"}}	
+</body>
+</html>

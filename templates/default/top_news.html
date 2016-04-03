@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="Keywords" content="{{$website.keyword}}" />
+<meta name="Description" content="{{$website.description}}" />
+<title>{{$siteTitle}}</title>
+<link rel="stylesheet" href="css/base.css" />
+<style>
+	.ad_title_box{ width: 100%; height: 250px; background: #415868;}
+	.ad_title{width: 1280px; height: 250px; background: url('images/common_01.jpg')  no-repeat; margin: 0px auto; }
+	.ad_title .ad_title_logo{ width: 292px; float: left; margin:155px 5px 0px 170px;}
+	.ad_title .ad_title_li{ height: 85px; float: left; margin:215px 0px 0px 0px;}
+	.ad_title .ad_title_li li{ float: left; width: 110px; height: 30px; margin-right: 5px; font-weight: bold; padding-top: 5px;}
+	.ad_title .ad_title_li .li_over{background: #ffffff; color: #2298d6;}
+	.ad_title .ad_title_li .li_away{background: #3078a0; color: #aeba66;}
+	.ad_title .ad_title_li .li_away a{ color: #aeba66;}
+
+	.slide{ width: 965px; margin: 0px auto 45px;}
+	.slide_big{ width: 645px; height: 343px; float: left; margin-right: 25px;}
+	.slide_small{ width: 295px; height: 160px; position: relative; float: left;}
+	.slide_small_bar{ position: absolute; width: 285px; height: 30px; bottom: 0px; left: 0px; background: #000; color: #fff; padding-top: 5px;filter:alpha(opacity=70); -moz-opacity:0.7; -khtml-opacity: 0.7; opacity: 0.7;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; padding-left: 5px; padding-right: 5px;}
+	
+	.content{ width:965px; margin:25px auto;}
+	.content .title{float:left; width:600px; text-align:left;}
+	.content .time{float:right; width:350px; text-align:right;}
+	.content p{ line-height:25px;}
+	.content a{color:#000;}
+	.content a:hover{color:#00f;}
+
+	.hiSlider{
+		overflow: hidden;
+		height:313px;
+		width:645px;
+		background: #eee;
+	}
+	
+	.hiSlider img{width: 645px; height: 343px;}
+	
+	.hiSlider-item{
+		float: left;
+	}
+	
+	/*分页*/
+	.pagingBarNum { clear: both; color:#000; width: 965px; text-align: center; margin: 0px auto;}
+	.pagingBarNum .pre_next {width: 52px;}
+	.pagingBarNum .current {color: #000;font-weight: bold;}
+	.pagingBarNum .gray {color:#000;}
+	.pagingBarNum a.current:visited {color: #000;}
+	.pagingBarNum a {text-decoration:none;padding: 3px 4px 0;margin: 4px 3px 0 0;color: #000;display: inline-table;}
+	.pagingBarNum a:visited {color: #000;}
+	.pagingBarNum a:hover {color: #f00;}
+	.pagingBarNum .pt {text-decoration:none;margin: 4px 3px 0 0;color: #000;display: inline-table;float: left;}
+</style>
+<link rel="stylesheet" href="css/jquery.hiSlider.min.css">
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/base.js"></script>
+</head>
+
+<body>
+	{{include file="header.html"}}
+	<div class="ad_title_box">	
+		<div class="ad_title">
+			<div class="ad_title_logo">
+				<img src="images/common_02.png" alt="" />
+			</div>
+			<div class="ad_title_li">
+				<ul>
+					<li class="li_over">留学资讯</li>
+					<li class="li_away"><a href="trend.php">TOP动态</a></li>
+					<div class="cl"></div>
+				</ul>
+			</div>
+			<div class="cl"></div>
+		</div>
+	</div>
+	<div class="slide">
+		<div class="slide_big">
+			<ul class="hiSlider hiSlider1">
+				{{foreach from=$hotNews item=hotNews name=hotNews}}
+					<li data-title="{{$hotNews.title}}" class="hiSlider-item">
+						<a href="{{$hotNews.contenturl}}">
+							<img src="{{$hotNews.imgurl}}" alt="{{$hotNews.title}}">
+						</a>
+					</li>
+				{{/foreach}}
+			</ul>
+			<script src="js/jquery.hiSlider.min.js"></script>
+			<script>
+				$('.hiSlider1').hiSlider();
+			</script>
+		</div>
+		<div class="slide_small" style="margin-bottom:25px;">
+			<div class="slide_small_bar">{{$adNews.title}}</div>
+			<a href="{{$adNews.contenturl}}">
+				<img src="{{$adNews.imgurl}}" alt="{{$adNews.title}}" width="295" height="160" />
+			</a>
+		</div>
+		<div class="slide_small">
+			<div class="slide_small_bar">{{$adNews2.title}}</div>
+			<a href="{{$adNews2.contenturl}}">
+				<img src="{{$adNews2.imgurl}}" alt="{{$adNews2.title}}" width="295" height="160" />
+			</a>
+		</div>
+		<div class="cl"></div>
+	</div>
+		<div class="content">
+			<ul>
+				{{foreach from="$news" name="news" item="news"}}
+					<li>
+						<p>
+							<span class="title">
+								<a href="article.php?nid={{$news.nid}}">{{$news.name}}</a>
+							</span>
+							<span class="time">
+								{{$news.addtime|date_format:"%Y-%m-%d"}}
+							</span>
+							<div class="cl"></div>
+						</p>
+					</li>
+				{{/foreach}}
+			</ul>
+			<div style="width:965px; height:50px; text-align:center;">
+				{{$paggingbar}}
+			</div>
+			<div class="cl"></div>
+		</div>
+	{{include file="footer.html"}}	
+</body>
+</html>
